@@ -1,14 +1,15 @@
 using UnityEngine;
 
-
 public class BookPageManager : MonoBehaviour
 {
-    [Header("Pages (ROOT OBJECTS)")] public GameObject mapPage;
+    private BookTab _currentTab;
+    
+    public GameObject mapPage;
     public GameObject evidencePage;
     public GameObject customizationPage;
     public GameObject collectionPage;
 
-    [Header("Tabs (3D objects)")] public Transform tabMap;
+    public Transform tabMap;
     public Transform tabEvidence;
     public Transform tabCustomization;
     public Transform tabCollection;
@@ -17,19 +18,54 @@ public class BookPageManager : MonoBehaviour
     Vector3 _evidencePos;
     Vector3 _customizationPos;
     Vector3 _collectionPos;
-    private Vector3 _raisedOffset = new Vector3(0, 0.02f, 0);
+
+    Vector3 _raisedOffset = new Vector3(0, 0.02f, 0);
+    
+    public void SetActiveTab(BookTab tab)
+    {
+        _currentTab = tab;
+
+        // reset visuals
+        tabMap.GetComponent<BookTab>().SetSelected(false);
+        tabEvidence.GetComponent<BookTab>().SetSelected(false);
+        tabCustomization.GetComponent<BookTab>().SetSelected(false);
+        tabCollection.GetComponent<BookTab>().SetSelected(false);
+
+        // activate selected
+        _currentTab.SetSelected(true);
+
+        // switch pages
+        switch (tab.tabType)
+        {
+            case BookTab.TabType.Map:
+                ShowMap();
+                break;
+
+            case BookTab.TabType.Evidence:
+                ShowEvidence();
+                break;
+
+            case BookTab.TabType.Customization:
+                ShowCustomization();
+                break;
+
+            case BookTab.TabType.Collection:
+                ShowCollection();
+                break;
+        }
+    }
 
     void Start()
     {
         _mapPos = tabMap.position;
         _evidencePos = tabEvidence.position;
         _customizationPos = tabCustomization.position;
-       _collectionPos = tabCollection.position;
+        _collectionPos = tabCollection.position;
 
         ShowMap();
     }
 
-    void ResetPages()
+    void ResetAll()
     {
         mapPage.SetActive(false);
         evidencePage.SetActive(false);
@@ -44,31 +80,29 @@ public class BookPageManager : MonoBehaviour
 
     public void ShowMap()
     {
-        ResetPages();
+        ResetAll();
         mapPage.SetActive(true);
         tabMap.position = _mapPos + _raisedOffset;
-        tabMap.position = _mapPos +_raisedOffset;
     }
 
     public void ShowEvidence()
     {
-        ResetPages();
+        ResetAll();
         evidencePage.SetActive(true);
         tabEvidence.position = _evidencePos + _raisedOffset;
     }
 
     public void ShowCustomization()
     {
-        ResetPages();
+        ResetAll();
         customizationPage.SetActive(true);
         tabCustomization.position = _customizationPos + _raisedOffset;
     }
 
     public void ShowCollection()
     {
-        ResetPages();
+        ResetAll();
         collectionPage.SetActive(true);
         tabCollection.position = _collectionPos + _raisedOffset;
-
     }
 }

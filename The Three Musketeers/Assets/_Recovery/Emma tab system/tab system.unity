@@ -859,6 +859,7 @@ GameObject:
   - component: {fileID: 717050094}
   - component: {fileID: 717050093}
   - component: {fileID: 717050091}
+  - component: {fileID: 717050095}
   m_Layer: 0
   m_Name: Tab_Collection
   m_TagString: Untagged
@@ -973,6 +974,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717050089}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &717050095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717050089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d247ae32b414c4aaa4813f5f2add81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutlineSimple
+  objectRenderer: {fileID: 0}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineScale: 1.03
 --- !u!1 &765195366
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +1002,7 @@ GameObject:
   - component: {fileID: 765195371}
   - component: {fileID: 765195370}
   - component: {fileID: 765195368}
+  - component: {fileID: 765195372}
   m_Layer: 0
   m_Name: Tab_Customization
   m_TagString: Untagged
@@ -1100,6 +1117,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765195366}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &765195372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765195366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d247ae32b414c4aaa4813f5f2add81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutlineSimple
+  objectRenderer: {fileID: 0}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineScale: 1.03
 --- !u!1 &1011126232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,6 +1370,7 @@ GameObject:
   - component: {fileID: 1115053463}
   - component: {fileID: 1115053462}
   - component: {fileID: 1115053460}
+  - component: {fileID: 1115053464}
   m_Layer: 0
   m_Name: Tab_Evidence
   m_TagString: Untagged
@@ -1452,6 +1485,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115053458}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1115053464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115053458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d247ae32b414c4aaa4813f5f2add81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutlineSimple
+  objectRenderer: {fileID: 0}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineScale: 1.03
 --- !u!1 &1178156775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,6 +1548,7 @@ GameObject:
   - component: {fileID: 1601853045}
   - component: {fileID: 1601853044}
   - component: {fileID: 1601853042}
+  - component: {fileID: 1601853046}
   m_Layer: 0
   m_Name: Tab_Map
   m_TagString: Untagged
@@ -1614,6 +1663,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601853040}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1601853046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601853040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d247ae32b414c4aaa4813f5f2add81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OutlineSimple
+  objectRenderer: {fileID: 0}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineScale: 1.03
 --- !u!1 &1610608734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,6 +1802,7 @@ GameObject:
   - component: {fileID: 1614895930}
   - component: {fileID: 1614895929}
   - component: {fileID: 1614895928}
+  - component: {fileID: 1614895932}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1863,6 +1928,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+--- !u!114 &1614895932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614895927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b439bc567152c7a45b0ad05934fd27a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickManager
 --- !u!1 &1768261241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2858,8 +2935,8 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1889443558}
   - {fileID: 1614895931}
+  - {fileID: 1889443558}
   - {fileID: 1610608738}
   - {fileID: 443349800}
   - {fileID: 1178156776}

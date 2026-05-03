@@ -13,27 +13,21 @@ public class BookTab : MonoBehaviour
     public TabType tabType;
     public BookPageManager manager;
 
-    public void OnTabClicked()   
+    private OutlineSimple outline;
+
+    void Awake()
     {
-        Debug.Log("Tab clicked: " + tabType);
+        outline = GetComponent<OutlineSimple>();
+    }
 
-        switch (tabType)
-        {
-            case TabType.Map:
-                manager.ShowMap();
-                break;
+    public void OnTabClicked()
+    {
+        manager.SetActiveTab(this);
+    }
 
-            case TabType.Evidence:
-                manager.ShowEvidence();
-                break;
-
-            case TabType.Customization:
-                manager.ShowCustomization();
-                break;
-
-            case TabType.Collection:
-                manager.ShowCollection();
-                break;
-        }
+    public void SetSelected(bool selected)
+    {
+        if (outline != null)
+            outline.SetOutline(selected);
     }
 }

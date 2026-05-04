@@ -11,8 +11,10 @@ public class InspectSystem : MonoBehaviour
     public UISlidePanel uiPanel;
     
     private Transform target;
-    private Vector3 originalPos;
-    private Quaternion originalRot;
+    private Vector3 originalLocalPos;
+    private Quaternion originalLocalRot;
+
+    private Transform originalParent;
     private bool inspecting = false;
     
     public float zoomSpeed = 2f;
@@ -64,8 +66,17 @@ public class InspectSystem : MonoBehaviour
     {
         targetZoom = offset.z;
         currentZoom = offset.z;
-        originalPos = transform.position;
-        originalRot = transform.rotation;
+
+        originalParent = transform.parent;
+        originalLocalPos = transform.localPosition;
+        originalLocalRot = transform.localRotation;
+
+        Vector3 startEuler = transform.localRotation.eulerAngles;
+
+        currentRotation.x = startEuler.y;
+        currentRotation.y = startEuler.x;
+
+        targetRotation = currentRotation;
     }
 
     void Update()
@@ -113,35 +124,35 @@ public class InspectSystem : MonoBehaviour
             }
         }
 
-        HandleFreeLook();
+       // HandleFreeLook();
         if (escapeAction.triggered)
         {
-            ExitInspect();
+           ExitInspect();
         }
     }
     
-    void HandleFreeLook()
-    {
-        if (inspecting)
-            return;
+    //void HandleFreeLook()
+    //{
+       // if (inspecting)
+          //  return;
 
-        if (dragTool != null && dragTool.IsDragging)
-            return;
+       // if (dragTool != null && dragTool.IsDragging)
+          //  return;
 
-        if (rightClickAction.IsPressed())
-        {
-            Vector2 mouseDelta = mouseDeltaAction.ReadValue<Vector2>();
+       // if (rightClickAction.IsPressed())
+       // {
+         //   Vector2 mouseDelta = mouseDeltaAction.ReadValue<Vector2>();
             
-            targetRotation.x += mouseDelta.x * sensitivity;
-            targetRotation.y -= mouseDelta.y * sensitivity;
-        }
+          //  targetRotation.x += mouseDelta.x * sensitivity;
+         //   targetRotation.y -= mouseDelta.y * sensitivity;
+     //   }
         
-        currentRotation.x = Mathf.SmoothDamp(currentRotation.x, targetRotation.x, ref rotationVelocity.x, smoothTime);
-        currentRotation.y = Mathf.SmoothDamp(currentRotation.y, targetRotation.y, ref rotationVelocity.y, smoothTime);
+        //currentRotation.x = Mathf.SmoothDamp(currentRotation.x, targetRotation.x, ref rotationVelocity.x, smoothTime);
+        //currentRotation.y = Mathf.SmoothDamp(currentRotation.y, targetRotation.y, ref rotationVelocity.y, smoothTime);
 
-        currentRotation.y = Mathf.Clamp(currentRotation.y, -80f, 80f);
-        transform.rotation = Quaternion.Euler(currentRotation.y, currentRotation.x, 0f);
-    }
+        //currentRotation.y = Mathf.Clamp(currentRotation.y, -80f, 80f);
+        //transform.rotation = Quaternion.Euler(currentRotation.y, currentRotation.x, 0f);
+   // }
     
     
     void HandleClick()
@@ -157,8 +168,12 @@ public class InspectSystem : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log("hit");
+
                 target = hit.transform;
                 inspecting = true;
+
+                // detach camera from player so inspect can move freely
+                transform.SetParent(null);
             }
             else
             {
@@ -172,7 +187,11 @@ public class InspectSystem : MonoBehaviour
         inspecting = false;
         target = null;
 
-        transform.position = originalPos;
-        transform.rotation = originalRot;
+        // reattach camera to player
+        transform.SetParent(originalParent);
+
+        // restore camera position relative to player
+        transform.localPosition = originalLocalPos;
+        transform.localRotation = originalLocalRot;
     }
 }

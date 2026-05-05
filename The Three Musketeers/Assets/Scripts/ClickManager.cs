@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class ClickManager : MonoBehaviour
 {
@@ -22,9 +23,16 @@ public class ClickManager : MonoBehaviour
 
     void Update()
     {
+        // Check for click input
         if (inputActions.Player.Click.triggered)
         {
-            Debug.Log("Click detected");
+            // 🚫 IMPORTANT: Ignore clicks when over UI
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
+            Debug.Log("Click detected (NEW SYSTEM)");
 
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             RaycastHit hit;

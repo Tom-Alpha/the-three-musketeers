@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        
         // finds the Animator on your character model
         animator = GetComponentInChildren<Animator>();
     }
@@ -40,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
         else
             speed = 0f;
 
-        animator.SetFloat("speed", speed);
+        if (animator != null)
+        {
+            animator.SetFloat("speed", speed);
+        }
     }
 }

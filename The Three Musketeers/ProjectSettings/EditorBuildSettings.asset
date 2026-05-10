@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/CamelScene.unity
+    guid: 899bb99ae95bb56469d8033ac24c5745
+  - enabled: 1
+    path: Assets/Scenes/BookScene.unity
+    guid: 9b93b1272ba31e047888e98339b47802
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d3a852aeea5756a4a8f48e5fdb4b0f00, type: 3}
   m_UseUCBPForAssetBundles: 0

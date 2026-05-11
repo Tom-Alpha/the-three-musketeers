@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class BookSceneLoader : MonoBehaviour
 {
-    public void LoadBookScene()
+    void Update()
     {
-        SceneManager.LoadScene("BookScene");
+        if (Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            SceneManager.LoadScene("BookScene");
+        }
     }
 }

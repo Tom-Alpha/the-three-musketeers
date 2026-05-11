@@ -1,30 +1,37 @@
-void CreateString(PinConnection a, PinConnection b)
+using UnityEngine;
+
+public class CreateString : MonoBehaviour
 {
-    Debug.Log("STRING CREATED");
+    public GameObject stringPrefab;
 
-    GameObject stringObj =
-        Instantiate(stringPrefab, transform);
+    void CreateStringBetweenPins(PinConnection a, PinConnection b)
+    {
+        Debug.Log("STRING CREATED");
 
-    RectTransform rect =
-        stringObj.GetComponent<RectTransform>();
+        GameObject stringObj =
+            Instantiate(stringPrefab, transform);
 
-    rect.localScale = Vector3.one;
+        RectTransform rect =
+            stringObj.GetComponent<RectTransform>();
 
-    Vector3 start = a.transform.position;
-    Vector3 end = b.transform.position;
+        rect.localScale = Vector3.one;
 
-    Vector3 direction = end - start;
+        Vector3 start = a.transform.position;
+        Vector3 end = b.transform.position;
 
-    float distance = direction.magnitude;
+        Vector3 direction = end - start;
 
-    rect.position = (start + end) / 2f;
+        float distance = direction.magnitude;
 
-    rect.sizeDelta = new Vector2(distance, 10f);
+        rect.position = (start + end) / 2f;
 
-    float angle =
-        Mathf.Atan2(direction.y, direction.x)
-        * Mathf.Rad2Deg;
+        rect.sizeDelta = new Vector2(distance, 10f);
 
-    rect.rotation =
-        Quaternion.Euler(0, 0, angle);
+        float angle =
+            Mathf.Atan2(direction.y, direction.x)
+            * Mathf.Rad2Deg;
+
+        rect.rotation =
+            Quaternion.Euler(0, 0, angle);
+    }
 }

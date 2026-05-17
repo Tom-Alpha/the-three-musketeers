@@ -1,89 +1,49 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
-// main camera manager with inspecting and proximity interaction
+// main camera manager with inspecting and the
+// magnifying glass box appearing also depends on this script
 public class InspectSystem : MonoBehaviour
 {
-    [Header("Player")]
-    public PlayerMovement playerMovement;
-    public Renderer[] playerRenderers;
-    
-    public Transform player;
-    [Header("Movement")]
     public float moveSpeed = 5f;
     public float rotateSpeed = 100f;
     public Vector3 offset = new Vector3(0, 0, -2);
+    public UIDragTool dragTool;
+    public UISlidePanel uiPanel;
+    
+    private Transform target;
+    private Vector3 originalLocalPos;
+    private Quaternion originalLocalRot;
 
-    [Header("Zoom")]
+    private Transform originalParent;
+    private bool inspecting = false;
+    
     public float zoomSpeed = 2f;
     public float minZoom = -1f;
     public float maxZoom = -5f;
 
-    [Header("Detection")]
-    public float inspectRange = 5f;
-    public LayerMask inspectLayer;
-
-    [Header("Prompt")]
-    public GameObject promptUI;
-
-    [Header("References")]
-    public UIDragTool dragTool;
-    public UISlidePanel uiPanel;
-
-    private Transform target;
-    private Transform nearbyTarget;
-
-    private GameObject activePrompt;
-
-    private Vector3 originalLocalPos;
-    private Quaternion originalLocalRot;
-    private Transform originalParent;
-
-    private bool inspecting = false;
-
     private float targetZoom;
     private float currentZoom;
     private float zoomVelocity;
-
+    
     private InputAction rightClickAction;
+    private InputAction clickAction;
     private InputAction mouseDeltaAction;
     private InputAction escapeAction;
-    private InputAction interactAction;
-    private InputAction clickAction;
-
+    
     private Vector2 currentRotation;
     private Vector2 targetRotation;
     private Vector2 rotationVelocity;
 
     public float smoothTime = 0.05f;
     public float sensitivity = 0.3f;
-
+    
+    
     void Awake()
     {
-        rightClickAction = new InputAction(
-            type: InputActionType.Button,
-            binding: "<Mouse>/rightButton"
-        );
-
-        clickAction = new InputAction(
-            type: InputActionType.Button,
-            binding: "<Mouse>/leftButton"
-        );
-
-        mouseDeltaAction = new InputAction(
-            type: InputActionType.Value,
-            binding: "<Mouse>/delta"
-        );
-
-        escapeAction = new InputAction(
-            type: InputActionType.Button,
-            binding: "<Keyboard>/escape"
-        );
-
-        interactAction = new InputAction(
-            type: InputActionType.Button,
-            binding: "<Keyboard>/e"
-        );
+        rightClickAction = new InputAction(type: InputActionType.Button, binding: "<Mouse>/rightButton");
+        clickAction = new InputAction(type: InputActionType.Button, binding: "<Mouse>/leftButton");
+        mouseDeltaAction = new InputAction(type: InputActionType.Value, binding: "<Mouse>/delta");
+        escapeAction = new InputAction(type: InputActionType.Button, binding: "<Keyboard>/escape");
     }
 
     void OnEnable()
@@ -92,7 +52,6 @@ public class InspectSystem : MonoBehaviour
         clickAction.Enable();
         mouseDeltaAction.Enable();
         escapeAction.Enable();
-        interactAction.Enable();
     }
 
     void OnDisable()
@@ -101,7 +60,6 @@ public class InspectSystem : MonoBehaviour
         clickAction.Disable();
         mouseDeltaAction.Disable();
         escapeAction.Disable();
-        interactAction.Disable();
     }
 
     void Start()
@@ -123,11 +81,6 @@ public class InspectSystem : MonoBehaviour
 
     void Update()
     {
-
-        Debug.Log("SCRIPT RUNNING");
-        CheckForNearbyObject();
-        HandleInteraction();
-
         if (inspecting)
         {
             uiPanel.Show();
@@ -136,142 +89,95 @@ public class InspectSystem : MonoBehaviour
         {
             uiPanel.Hide();
         }
+        HandleClick();
 
         if (inspecting && target != null)
         {
-            HandleInspectCamera();
-        }
+            
+            float scroll = Mouse.current.scroll.ReadValue().y;
 
-        if (escapeAction.triggered)
-        {
-            ExitInspect();
-        }
-    }
-    
-
-    void CheckForNearbyObject()
-    {
-        if (inspecting)
-        {
-            promptUI.SetActive(false);
-            return;
-        }
-        
-        Collider[] hits = Physics.OverlapSphere(
-            player.position,
-            inspectRange
-        );
-
-        Debug.Log("Hits: " + hits.Length);
-
-        foreach (Collider hit in hits)
-        {
-            Debug.Log("Found object: " + hit.name);
-
-            if (hit.CompareTag("Inspectable"))
+            if (scroll != 0)
             {
-                Debug.Log("FOUND INSPECTABLE");
+                targetZoom += scroll * zoomSpeed * 0.1f;
 
-                nearbyTarget = hit.transform;
+                targetZoom = Mathf.Clamp(targetZoom, maxZoom, minZoom);
+            }
+            
+            currentZoom = Mathf.SmoothDamp(currentZoom, targetZoom, ref zoomVelocity, 0.1f);
 
-                promptUI.SetActive(true);
+            Vector3 zoomOffset = new Vector3(offset.x, offset.y, currentZoom);
 
-                Renderer rend = nearbyTarget.GetComponent<Renderer>();
+            Vector3 desiredPosition = target.position + zoomOffset;
+            
+            transform.position = Vector3.Lerp(transform.position, desiredPosition, Time.deltaTime * moveSpeed);
+            transform.LookAt(target);
 
-                if (rend != null)
+            if (clickAction.IsPressed())
+            {
+                if (dragTool == null || !dragTool.IsDragging)
                 {
-                    Vector3 pos = rend.bounds.center;
+                    Vector2 mouseDelta = mouseDeltaAction.ReadValue<Vector2>();
+                    float mouseX = mouseDelta.x;
 
-                    pos.y = rend.bounds.max.y + 0.15f;
-
-                    pos += Camera.main.transform.forward * -0.15f;
-
-                    promptUI.transform.position = pos;
+                    target.Rotate(Vector3.up, -mouseX * rotateSpeed * Time.deltaTime, Space.World);
                 }
-
-                return;
             }
         }
 
-        promptUI.SetActive(false);
-        nearbyTarget = null;
+       // HandleFreeLook();
+        if (escapeAction.triggered)
+        {
+           ExitInspect();
+        }
     }
+    
+    //void HandleFreeLook()
+    //{
+       // if (inspecting)
+          //  return;
 
-    void HandleInteraction()
+       // if (dragTool != null && dragTool.IsDragging)
+          //  return;
+
+       // if (rightClickAction.IsPressed())
+       // {
+         //   Vector2 mouseDelta = mouseDeltaAction.ReadValue<Vector2>();
+            
+          //  targetRotation.x += mouseDelta.x * sensitivity;
+         //   targetRotation.y -= mouseDelta.y * sensitivity;
+     //   }
+        
+        //currentRotation.x = Mathf.SmoothDamp(currentRotation.x, targetRotation.x, ref rotationVelocity.x, smoothTime);
+        //currentRotation.y = Mathf.SmoothDamp(currentRotation.y, targetRotation.y, ref rotationVelocity.y, smoothTime);
+
+        //currentRotation.y = Mathf.Clamp(currentRotation.y, -80f, 80f);
+        //transform.rotation = Quaternion.Euler(currentRotation.y, currentRotation.x, 0f);
+   // }
+    
+    
+    void HandleClick()
     {
         if (dragTool != null && dragTool.IsDragging)
             return;
 
-        if (interactAction.triggered &&
-            nearbyTarget != null &&
-            !inspecting)
+        if (clickAction.triggered && !inspecting)
         {
-            Debug.Log("Inspecting object");
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            RaycastHit hit;
 
-            target = nearbyTarget;
-            inspecting = true;
-            playerMovement.enabled = false;
-            foreach (Renderer rend in playerRenderers)
+            if (Physics.Raycast(ray, out hit))
             {
-                rend.enabled = false;
+                Debug.Log("hit");
+
+                target = hit.transform;
+                inspecting = true;
+
+                // detach camera from player so inspect can move freely
+                transform.SetParent(null);
             }
-            transform.SetParent(null);
-        }
-    }
-
-    void HandleInspectCamera()
-    {
-        float scroll = Mouse.current.scroll.ReadValue().y;
-
-        if (scroll != 0)
-        {
-            targetZoom += scroll * zoomSpeed * 0.1f;
-
-            targetZoom = Mathf.Clamp(
-                targetZoom,
-                maxZoom,
-                minZoom
-            );
-        }
-
-        currentZoom = Mathf.SmoothDamp(
-            currentZoom,
-            targetZoom,
-            ref zoomVelocity,
-            0.1f
-        );
-
-        Vector3 zoomOffset = new Vector3(
-            offset.x,
-            offset.y,
-            currentZoom
-        );
-
-        Vector3 desiredPosition =
-            target.position + zoomOffset;
-
-        transform.position = Vector3.Lerp(
-            transform.position,
-            desiredPosition,
-            Time.deltaTime * moveSpeed
-        );
-
-        transform.LookAt(target);
-
-        if (clickAction.IsPressed())
-        {
-            if (dragTool == null || !dragTool.IsDragging)
+            else
             {
-                Vector2 mouseDelta =
-                    mouseDeltaAction.ReadValue<Vector2>();
-
-                float mouseX = mouseDelta.x;
-
-                target.Rotate(
-                    Vector3.up,
-                    -mouseX * rotateSpeed * Time.deltaTime,
-                    Space.World
-                );
+                Debug.Log("shit dont work");
             }
         }
     }
@@ -279,31 +185,13 @@ public class InspectSystem : MonoBehaviour
     void ExitInspect()
     {
         inspecting = false;
-        playerMovement.enabled = true;
-        foreach (Renderer rend in playerRenderers)
-        {
-            rend.enabled = true;
-        }
         target = null;
 
-        if (activePrompt != null)
-        {
-            activePrompt.SetActive(false);
-        }
-
+        // reattach camera to player
         transform.SetParent(originalParent);
 
+        // restore camera position relative to player
         transform.localPosition = originalLocalPos;
         transform.localRotation = originalLocalRot;
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-
-        Gizmos.DrawWireSphere(
-            transform.position,
-            inspectRange
-        );
     }
 }

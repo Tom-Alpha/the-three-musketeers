@@ -348,8 +348,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InspectSystem
   playerMovement: {fileID: 1256438289}
-  playerRenderers:
-  - {fileID: 1256438291}
   player: {fileID: 1256438293}
   moveSpeed: 5
   rotateSpeed: 100
@@ -360,7 +358,7 @@ MonoBehaviour:
   inspectRange: 5
   inspectLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   promptUI: {fileID: 655344359}
   dragTool: {fileID: 33756234}
   uiPanel: {fileID: 1588841914}
@@ -704,7 +702,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 330585545}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

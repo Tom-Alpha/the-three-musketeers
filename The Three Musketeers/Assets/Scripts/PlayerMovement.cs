@@ -9,16 +9,20 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        // finds the Animator on your character model
         animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
-    {   
+    {
+        if (animator == null)
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
+
         float mouseX = Mouse.current.delta.ReadValue().x;
 
         transform.Rotate(Vector3.up * mouseX * rotationSpeed);
-        
+
         float moveX = 0f;
         float moveZ = 0f;
 
@@ -29,10 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = new Vector3(moveX, 0, moveZ);
 
-        // move player
         transform.Translate(move * movementSpeed * Time.deltaTime);
 
-        // tell animator how fast we are moving
         float speed = move.magnitude;
 
         if (speed > 0)
@@ -40,6 +42,9 @@ public class PlayerMovement : MonoBehaviour
         else
             speed = 0f;
 
-        animator.SetFloat("speed", speed);
+        if (animator != null)
+        {
+            animator.SetFloat("speed", speed);
+        }
     }
 }

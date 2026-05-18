@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private float movementSpeed = 5f;
-    [SerializeField] private float rotationSpeed = 0.0001f;
+    [SerializeField] private float rotationSpeed = 5f;
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
         float mouseX = Mouse.current.delta.ReadValue().x;
 
-        transform.Rotate(Vector3.up * mouseX * rotationSpeed);
+        transform.Rotate(Vector3.up * mouseX * rotationSpeed * Time.deltaTime);
 
         float moveX = 0f;
         float moveZ = 0f;

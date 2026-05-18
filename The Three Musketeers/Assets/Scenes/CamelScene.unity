@@ -6192,7 +6192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   animator: {fileID: 0}
   movementSpeed: 5
-  rotationSpeed: 5
+  rotationSpeed: 50
 --- !u!136 &1256438290
 CapsuleCollider:
   m_ObjectHideFlags: 0

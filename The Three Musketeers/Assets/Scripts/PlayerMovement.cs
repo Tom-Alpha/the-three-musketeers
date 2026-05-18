@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Running PlayerMovement");
         animator = GetComponentInChildren<Animator>();
     }
 

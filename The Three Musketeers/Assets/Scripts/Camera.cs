@@ -206,7 +206,7 @@ public class InspectSystem : MonoBehaviour
             nearbyTarget != null &&
             !inspecting)
         {
-            Debug.Log("Inspecting object");
+            Debug.Log("Inspecting...");
 
             target = nearbyTarget;
             inspecting = true;
@@ -306,4 +306,6 @@ public class InspectSystem : MonoBehaviour
             inspectRange
         );
     }
+    
 }
+

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ParrotMinigame : MonoBehaviour
 {
+    private Animator animator;
+
     public Transform[] waypoints;
 
     public float flySpeed = 5f;
@@ -10,6 +12,10 @@ public class ParrotMinigame : MonoBehaviour
 
     private bool isFlying = false;
 
+    void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
     void Update()
     {
         if (!isFlying) return;
@@ -27,6 +33,12 @@ public class ParrotMinigame : MonoBehaviour
     {
         currentWaypoint = 1;
         isFlying = true;
+        
+        // Start takeoff animation
+        animator.SetTrigger("TakeOffTrigger");
+
+        // Enter flying state after takeoff
+        animator.SetBool("BirdIsFlying", true);
     }
 
     public void AdvanceWaypoint()
@@ -37,6 +49,9 @@ public class ParrotMinigame : MonoBehaviour
         {
             Debug.Log("Parrot caught!");
             isFlying = false;
+            
+            // Return to idle
+            animator.SetBool("BirdIsFlying", false);
         }
     }
 }

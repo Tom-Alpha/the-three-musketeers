@@ -43,6 +43,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3606013707
+    locked: 0
+  - name: Book
+    uniqueID: 1768855837
+    locked: 0
+  - name: Slots
+    uniqueID: 3233061549
+    locked: 0
+  - name: Evidence
+    uniqueID: 2581189059
+    locked: 0
+  - name: UI
+    uniqueID: 3219645945
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1

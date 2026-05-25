@@ -20,7 +20,25 @@ public class CustomizationManager : MonoBehaviour
     void Start()
     {
         data = CharacterData.instance;
+
+        ValidateIndexes();
+
         UpdateCharacter();
+    }
+
+    void ValidateIndexes()
+    {
+        if (hairOptions.Length > 0)
+            data.hairIndex = Mathf.Clamp(data.hairIndex, 0, hairOptions.Length - 1);
+
+        if (eyesOptions.Length > 0)
+            data.eyesIndex = Mathf.Clamp(data.eyesIndex, 0, eyesOptions.Length - 1);
+
+        if (mouthOptions.Length > 0)
+            data.mouthIndex = Mathf.Clamp(data.mouthIndex, 0, mouthOptions.Length - 1);
+
+        if (skinOptions.Length > 0)
+            data.skinIndex = Mathf.Clamp(data.skinIndex, 0, skinOptions.Length - 1);
     }
 
     void UpdateCharacter()

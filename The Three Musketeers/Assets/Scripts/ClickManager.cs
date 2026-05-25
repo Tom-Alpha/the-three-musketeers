@@ -26,7 +26,7 @@ public class ClickManager : MonoBehaviour
         // Check for click input
         if (inputActions.Player.Click.triggered)
         {
-            // 🚫 IMPORTANT: Ignore clicks when over UI
+            // IMPORTANT: Ignore clicks when over UI
             if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             {
                 return;

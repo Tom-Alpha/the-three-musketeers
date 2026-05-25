@@ -4,7 +4,7 @@ public class OutlineSimple : MonoBehaviour
 {
     public Renderer objectRenderer;
     public Color outlineColor = Color.white;
-    public float outlineScale = 1.03f;
+    public float outlineScale = 1f;
 
     private GameObject outlineObject;
 

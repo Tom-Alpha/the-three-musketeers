@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetFloat("speed", speed);
+            animator.SetFloat("Speed", speed);
         }
     }
 }

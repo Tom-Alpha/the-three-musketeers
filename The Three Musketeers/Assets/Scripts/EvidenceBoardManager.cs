@@ -66,32 +66,14 @@ public class EvidenceBoardManager : MonoBehaviour
 
     activeLines.Add(lineObj);
 
-    Vector3 direction =
-        end.position - start.position;
+    LineRenderer lr =
+        lineObj.GetComponent<LineRenderer>();
 
-    float distance =
-        direction.magnitude;
+    Vector3 offset =
+    new Vector3(0, 0.01f, 0);
 
-    Vector3 midpoint =
-        (start.position + end.position) / 2f;
-
-    midpoint.y += 0.01f;
-
-    lineObj.transform.position =
-        midpoint;
-
-    lineObj.transform.right =
-        direction.normalized;
-
-    SpriteRenderer sr =
-        lineObj.GetComponent<SpriteRenderer>();
-
-    Vector2 size =
-        sr.size;
-
-    size.x = distance;
-
-    sr.size = size;
+    lr.SetPosition(0, start.position + offset);
+    lr.SetPosition(1, end.position + offset);
 }
 
     void ClearLines()

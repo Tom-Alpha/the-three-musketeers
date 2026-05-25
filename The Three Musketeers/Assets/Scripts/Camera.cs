@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// main camera manager with inspecting and proximity interaction
 public class InspectSystem : MonoBehaviour
 {
     [Header("Player")]

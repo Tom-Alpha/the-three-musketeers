@@ -5,9 +5,16 @@ public class DropZone : MonoBehaviour
     [Header("Accepted State")]
     public EvidenceState requiredState;
 
+    public Transform connectionPoint;
+
     public GameObject pinObject;
 
+    public EvidenceBoardManager boardManager;
+
     public Vector3 snapOffset;
+
+    [HideInInspector]
+    public EvidenceData currentEvidence;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +30,8 @@ public class DropZone : MonoBehaviour
         other.transform.position =
             transform.position + snapOffset;
 
+        currentEvidence = evidence;
+
         if (correct)
         {
             Debug.Log("Correct evidence placed!");
@@ -34,5 +43,7 @@ public class DropZone : MonoBehaviour
         {
             Debug.Log("Wrong evidence!");
         }
+        boardManager.RefreshConnections();
     }
+
 }

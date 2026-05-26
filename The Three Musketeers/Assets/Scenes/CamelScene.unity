@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointTrigger
   parrot: {fileID: 60425773}
+  checkpointIndex: 0
 --- !u!114 &60425773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +185,7 @@ MonoBehaviour:
   - {fileID: 1033966560}
   stopAtWaypoint: 00000101010101
   flySpeed: 5
+  requiredCheckpointIndex: 1
 --- !u!4 &60425774
 Transform:
   m_ObjectHideFlags: 0
@@ -286,6 +288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lorikeet_animated
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: ea01eaaf973eb9c4d92acf5f44c5fce4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6908acfaeb679514bb4c9d93da00fead, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -735,6 +741,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: a28283cb0f54b5d49902308738561610, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d36540c974b4d61488ce42815b8fd094, type: 2}
     - target: {fileID: 919132149155446097, guid: a28283cb0f54b5d49902308738561610, type: 3}
       propertyPath: m_Name
       value: camel_greybox
@@ -789,6 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointTrigger
   parrot: {fileID: 60425773}
+  checkpointIndex: 0
 --- !u!65 &559332072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5919,10 +5930,94 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7629685206718814333, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cfa476ba7bc494c59b0ebd1633438c9e, type: 2}
+    - target: {fileID: -7191187623848764331, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 38b99864f973c844e94e3e0395871907, type: 2}
+    - target: {fileID: -6304397869321307794, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7cf80399c072b7a4990927eb7f65245e, type: 2}
+    - target: {fileID: -5221288821659719376, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 38b99864f973c844e94e3e0395871907, type: 2}
+    - target: {fileID: -4969370967916591667, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7cf80399c072b7a4990927eb7f65245e, type: 2}
+    - target: {fileID: -4417613432503759561, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d785a3f0291ff44cb430a968723adb8, type: 2}
+    - target: {fileID: -3158318852839868418, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e9649ac84d76f74e86fd7ca8c5c5651, type: 2}
+    - target: {fileID: -1791021718884840133, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c13a41a40f354204b91cb744860bf9ab, type: 2}
+    - target: {fileID: -1666226362728500447, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d3326f808905f9349a644f9798242b24, type: 2}
+    - target: {fileID: 312798698618953876, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 43afbfb26a49878448271b7f9e32fd5c, type: 2}
+    - target: {fileID: 913175635691206828, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4d785a3f0291ff44cb430a968723adb8, type: 2}
     - target: {fileID: 919132149155446097, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
       propertyPath: m_Name
       value: habitatsV4
       objectReference: {fileID: 0}
+    - target: {fileID: 3286085371642429124, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f54f49421d3ca649a27d6661d478d08, type: 2}
+    - target: {fileID: 4048595861732354717, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d3326f808905f9349a644f9798242b24, type: 2}
+    - target: {fileID: 5003638820086689883, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9e9649ac84d76f74e86fd7ca8c5c5651, type: 2}
+    - target: {fileID: 5155339857106161414, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 41d31976016d63749a2ec8fc5b638419, type: 2}
+    - target: {fileID: 5194733813290634275, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d3326f808905f9349a644f9798242b24, type: 2}
+    - target: {fileID: 6158165648230131955, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cfa476ba7bc494c59b0ebd1633438c9e, type: 2}
+    - target: {fileID: 7878359783719451807, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cfa476ba7bc494c59b0ebd1633438c9e, type: 2}
+    - target: {fileID: 7893246938173072304, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 06e54428dab23d24ea49b5e72a5e69b8, type: 2}
+    - target: {fileID: 8698987820125214196, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a3ffb2a6b46a83e4ea783501f118f6ae, type: 2}
+    - target: {fileID: 9158076046667905945, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 38b99864f973c844e94e3e0395871907, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 0b513961027ef8a4c91a2eb3ccac0783, type: 3}
@@ -6059,6 +6154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointTrigger
   parrot: {fileID: 60425773}
+  checkpointIndex: 0
 --- !u!65 &1048610200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6226,7 +6322,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 6908acfaeb679514bb4c9d93da00fead, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6335,6 +6431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointTrigger
   parrot: {fileID: 60425773}
+  checkpointIndex: 0
 --- !u!65 &1184863409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7127,6 +7224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointTrigger
   parrot: {fileID: 60425773}
+  checkpointIndex: 0
 --- !u!65 &1836607285
 BoxCollider:
   m_ObjectHideFlags: 0

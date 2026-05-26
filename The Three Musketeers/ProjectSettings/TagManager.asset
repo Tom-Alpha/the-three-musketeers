@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Inspectable
   - Evidence
+  - Book Camera
   layers:
   - Default
   - TransparentFX

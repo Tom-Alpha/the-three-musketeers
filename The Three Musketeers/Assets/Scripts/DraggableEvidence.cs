@@ -3,15 +3,11 @@ using UnityEngine.InputSystem;
 
 public class DraggableEvidence : MonoBehaviour
 {
-    Camera cam;
+  
     bool dragging;
     Vector3 offset;
 
-    void Awake()
-    {
-        cam = Camera.main;
-    }
-
+    
     void Update()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -34,7 +30,7 @@ public class DraggableEvidence : MonoBehaviour
     void TryStartDrag()
     {
         Ray ray =
-            cam.ScreenPointToRay(
+            Camera.main.ScreenPointToRay(
                 Mouse.current.position.ReadValue());
 
         if (Physics.Raycast(ray, out RaycastHit hit))
@@ -61,9 +57,9 @@ public class DraggableEvidence : MonoBehaviour
             new Vector3(
                 mouse.x,
                 mouse.y,
-                cam.WorldToScreenPoint(
+                Camera.main.WorldToScreenPoint(
                     transform.position).z);
 
-        return cam.ScreenToWorldPoint(screenPos);
+        return Camera.main.ScreenToWorldPoint(screenPos);
     }
 }

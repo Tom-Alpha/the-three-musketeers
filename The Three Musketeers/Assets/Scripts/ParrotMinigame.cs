@@ -57,7 +57,12 @@ public class ParrotMinigame : MonoBehaviour
         if (distance < 0.1f)
         {
             Debug.Log("Reached waypoint");
+            if (currentWaypoint == 5)
+            {
+                Debug.Log("PARROT INSPECTABLE");
 
+                gameObject.tag = "Inspectable";
+            }
             if (stopAtWaypoint[currentWaypoint])
             {
                 isFlying = false;
@@ -106,26 +111,30 @@ public class ParrotMinigame : MonoBehaviour
         AdvanceWaypoint();
     }
 
-    public void AdvanceWaypoint()
+public void AdvanceWaypoint()
+{
+    currentWaypoint++;
+
+    if (currentWaypoint == 6)
     {
-        currentWaypoint++;
+        Debug.Log("PARROT INSPECTABLE");
 
-        if (currentWaypoint >= waypoints.Length)
-        {
-            Debug.Log("Parrot caught!");
-
-            isFlying = false;
-
-            animator.SetBool("IsFlying", false);
-
-            // Make parrot inspectable after being caught
-            gameObject.tag = "Inspectable";
-
-            return;
-        }
-
-        isFlying = true;
-
-        animator.SetBool("IsFlying", true);
+        gameObject.tag = "Inspectable";
     }
+
+    if (currentWaypoint >= waypoints.Length)
+    {
+        Debug.Log("Parrot caught!");
+
+        isFlying = false;
+
+        animator.SetBool("IsFlying", false);
+
+        return;
+    }
+
+    isFlying = true;
+
+    animator.SetBool("IsFlying", true);
+}
 }

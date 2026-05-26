@@ -175,7 +175,8 @@ public class InspectSystem : MonoBehaviour
 
                 promptUI.SetActive(true);
 
-                Renderer rend = nearbyTarget.GetComponent<Renderer>();
+                Renderer rend =
+                    nearbyTarget.GetComponentInChildren<Renderer>();
 
                 if (rend != null)
                 {

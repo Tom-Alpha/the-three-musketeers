@@ -26,12 +26,7 @@ public class ClickManager : MonoBehaviour
         // Check for click input
         if (inputActions.Player.Click.triggered)
         {
-            // IMPORTANT: Ignore clicks when over UI
-            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-
+            
             Debug.Log("Click detected (NEW SYSTEM)");
 
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());

@@ -14,12 +14,12 @@ public class EvidenceBoardManager : MonoBehaviour
 
     public void RefreshConnections()
     {
-        Debug.Log("Refreshing connections");
         ClearLines();
 
         List<Transform> correctPoints =
             new List<Transform>();
 
+        // Collect correct evidence points
         foreach (DropZone zone in dropZones)
         {
             if (zone.currentEvidence == null)
@@ -31,17 +31,22 @@ public class EvidenceBoardManager : MonoBehaviour
 
             if (correct)
             {
-                correctPoints.Add(zone.connectionPoint);
+                correctPoints.Add(
+                    zone.connectionPoint
+                );
             }
         }
+
+        // Only show lines if ALL slots are filled
         foreach (DropZone zone in dropZones)
         {
             if (zone.currentEvidence == null)
             {
                 return;
             }
-        
         }
+
+        // Connect correct evidence together
         for (int i = 0; i < correctPoints.Count - 1; i++)
         {
             CreateLine(
@@ -50,6 +55,7 @@ public class EvidenceBoardManager : MonoBehaviour
             );
         }
 
+        // Connect last correct evidence to solution
         if (correctPoints.Count > 0)
         {
             CreateLine(
@@ -59,22 +65,33 @@ public class EvidenceBoardManager : MonoBehaviour
         }
     }
 
-   void CreateLine(Transform start, Transform end)
-{
-    GameObject lineObj =
-        Instantiate(linePrefab);
+    void CreateLine(Transform start, Transform end)
+    {
+        GameObject lineObj =
+            Instantiate(
+            linePrefab,
+            transform
+        );
 
-    activeLines.Add(lineObj);
+        activeLines.Add(lineObj);
 
-    LineRenderer lr =
-        lineObj.GetComponent<LineRenderer>();
+        LineRenderer lr =
+            lineObj.GetComponent<LineRenderer>();
 
-    Vector3 offset =
-    new Vector3(0, 0.01f, 0);
+        // Slightly above the board
+        Vector3 offset =
+            new Vector3(0, 0.1f, 0);
 
-    lr.SetPosition(0, start.position + offset);
-    lr.SetPosition(1, end.position + offset);
-}
+        lr.SetPosition(
+            0,
+            start.position + offset
+        );
+
+        lr.SetPosition(
+            1,
+            end.position + offset
+        );
+    }
 
     void ClearLines()
     {

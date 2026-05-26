@@ -185,7 +185,7 @@ MonoBehaviour:
   - {fileID: 1033966560}
   stopAtWaypoint: 00000101010101
   flySpeed: 5
-  requiredCheckpointIndex: 1
+  requiredCheckpointIndex: 0
 --- !u!4 &60425774
 Transform:
   m_ObjectHideFlags: 0
@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointTrigger
   parrot: {fileID: 60425773}
-  checkpointIndex: 0
+  checkpointIndex: 4
 --- !u!65 &559332072
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6154,7 +6154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointTrigger
   parrot: {fileID: 60425773}
-  checkpointIndex: 0
+  checkpointIndex: 2
 --- !u!65 &1048610200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6431,7 +6431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointTrigger
   parrot: {fileID: 60425773}
-  checkpointIndex: 0
+  checkpointIndex: 3
 --- !u!65 &1184863409
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6462,8 +6462,8 @@ Transform:
   m_GameObject: {fileID: 1184863407}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.3766658, z: -0, w: 0.9263492}
-  m_LocalPosition: {x: -35.87, y: 1.9, z: -62}
-  m_LocalScale: {x: 6.313469, y: 3.0665855, z: 3.0852497}
+  m_LocalPosition: {x: -35.34, y: 1.9, z: -61.47}
+  m_LocalScale: {x: 4.555042, y: 3.0665855, z: 3.0852497}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6660,7 +6660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1368888135}
   m_Layer: 0
-  m_Name: Waypoint_1.5
+  m_Name: Waypoint_0.5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7224,7 +7224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointTrigger
   parrot: {fileID: 60425773}
-  checkpointIndex: 0
+  checkpointIndex: 1
 --- !u!65 &1836607285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7255,7 +7255,7 @@ Transform:
   m_GameObject: {fileID: 1836607283}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.03, y: 2.004, z: -62.92}
+  m_LocalPosition: {x: -44.03, y: 2.76, z: -62.92}
   m_LocalScale: {x: 3.6826034, y: 1.998586, z: 2.1816652}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7273,8 +7273,8 @@ SceneRoots:
   - {fileID: 1585627492}
   - {fileID: 1256438293}
   - {fileID: 1171822606}
-  - {fileID: 1807170488}
   - {fileID: 1368888135}
+  - {fileID: 1807170488}
   - {fileID: 1369548833}
   - {fileID: 1797350152}
   - {fileID: 1415185126}

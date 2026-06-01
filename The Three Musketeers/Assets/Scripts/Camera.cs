@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// main camera manager with inspecting and proximity interaction
 public class InspectSystem : MonoBehaviour
 {
     [Header("Player")]
@@ -108,11 +107,7 @@ public class InspectSystem : MonoBehaviour
     {
         targetZoom = offset.z;
         currentZoom = offset.z;
-
-        originalParent = transform.parent;
-        originalLocalPos = transform.localPosition;
-        originalLocalRot = transform.localRotation;
-
+        
         Vector3 startEuler = transform.localRotation.eulerAngles;
 
         currentRotation.x = startEuler.y;
@@ -142,7 +137,7 @@ public class InspectSystem : MonoBehaviour
             HandleInspectCamera();
         }
 
-        if (escapeAction.triggered)
+        if (escapeAction.triggered && inspecting)
         {
             ExitInspect();
         }
@@ -176,7 +171,8 @@ public class InspectSystem : MonoBehaviour
 
                 promptUI.SetActive(true);
 
-                Renderer rend = nearbyTarget.GetComponent<Renderer>();
+                Renderer rend =
+                    nearbyTarget.GetComponentInChildren<Renderer>();
 
                 if (rend != null)
                 {
@@ -291,9 +287,8 @@ public class InspectSystem : MonoBehaviour
             activePrompt.SetActive(false);
         }
 
-        transform.SetParent(originalParent);
-
-        transform.localPosition = originalLocalPos;
+        transform.SetParent(originalParent); 
+        transform.localPosition = originalLocalPos; 
         transform.localRotation = originalLocalRot;
     }
 

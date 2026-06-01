@@ -3,8 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUI : MonoBehaviour
 {
-    [Header("Panels")]
-    public GameObject mainMenuPanel;
+    [Header("Panels")] public GameObject mainMenuPanel;
     public GameObject settingsPanel;
 
     // Called when Play is pressed
@@ -26,4 +25,17 @@ public class MainMenuUI : MonoBehaviour
         settingsPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
+
+    // Quit game
+    public void QuitGame()
+    {
+        Debug.Log("Game Closed");
+
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
 }
+    

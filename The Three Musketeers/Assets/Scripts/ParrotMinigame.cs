@@ -2,56 +2,139 @@ using UnityEngine;
 
 public class ParrotMinigame : MonoBehaviour
 {
-    private Animator animator;
-
     public Transform[] waypoints;
+
+    public bool[] stopAtWaypoint;
 
     public float flySpeed = 5f;
 
+ 
     private int currentWaypoint = 0;
 
+    
     private bool isFlying = false;
+
+    private Animator animator;
+
+    // Tracks which checkpoint is currently allowed
+    public int requiredCheckpointIndex = 1;
 
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
+
+            animator = GetComponent<Animator>();
+
+            gameObject.tag = "Untagged";
+
+        // Make sure the parrot CANNOT be inspected at the start
+        gameObject.tag = "Untagged";
     }
+
     void Update()
     {
         if (!isFlying) return;
 
         Transform target = waypoints[currentWaypoint];
 
+        Vector3 direction = (target.position - transform.position).normalized;
+
+        if (direction != Vector3.zero)
+        {
+            transform.rotation =
+                Quaternion.LookRotation(direction) *
+                Quaternion.Euler(0, -110, 0);
+        }
+
         transform.position = Vector3.MoveTowards(
             transform.position,
             target.position,
             flySpeed * Time.deltaTime
         );
+
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        if (distance < 0.1f)
+        {
+            Debug.Log("Reached waypoint");
+            if (currentWaypoint == 5)
+            {
+                Debug.Log("PARROT INSPECTABLE");
+
+                gameObject.tag = "Inspectable";
+            }
+            if (stopAtWaypoint[currentWaypoint])
+            {
+                isFlying = false;
+
+                animator.SetBool("IsFlying", false);
+            }
+            else
+            {
+                AdvanceWaypoint();
+            }
+        }
     }
 
     public void StartMinigame()
     {
+        transform.position = waypoints[0].position;
+
         currentWaypoint = 1;
+
+        requiredCheckpointIndex = 1;
+
         isFlying = true;
-        
-        // Start takeoff animation
-        animator.SetTrigger("TakeOffTrigger");
 
-        // Enter flying state after takeoff
-        animator.SetBool("BirdIsFlying", true);
+        animator.SetBool("IsFlying", true);
+
+        animator.SetTrigger("TakeOff");
+
+        // Remove inspectability while flying
+        gameObject.tag = "Untagged";
     }
 
-    public void AdvanceWaypoint()
+    // Called by checkpoints
+    public void TryAdvanceCheckpoint(int checkpointIndex)
     {
-        currentWaypoint++;
-
-        if (currentWaypoint >= waypoints.Length)
+        // Only allow the correct checkpoint
+        if (checkpointIndex != requiredCheckpointIndex)
         {
-            Debug.Log("Parrot caught!");
-            isFlying = false;
-            
-            // Return to idle
-            animator.SetBool("BirdIsFlying", false);
+            Debug.Log("Wrong checkpoint!");
+            return;
         }
+
+        Debug.Log("Correct checkpoint!");
+
+        requiredCheckpointIndex++;
+
+        AdvanceWaypoint();
     }
+
+public void AdvanceWaypoint()
+{
+    currentWaypoint++;
+
+    if (currentWaypoint == 6)
+    {
+        Debug.Log("PARROT INSPECTABLE");
+
+        gameObject.tag = "Inspectable";
+    }
+
+    if (currentWaypoint >= waypoints.Length)
+    {
+        Debug.Log("Parrot caught!");
+
+        isFlying = false;
+
+        animator.SetBool("IsFlying", false);
+
+        return;
+    }
+
+    isFlying = true;
+
+    animator.SetBool("IsFlying", true);
+}
 }

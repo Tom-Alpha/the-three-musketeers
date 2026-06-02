@@ -1,16 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:The Three Musketeers/Assets/_Recovery/0 (2).unity.meta
-guid: 823e16c3cba5f51479ad4515385e07c5
-========
-guid: ab250b0a0b46ef5478b635b9e22d9e09
-folderAsset: yes
->>>>>>>> Stashed changes:The Three Musketeers/Assets/Assests/Lemur/Materials.meta
-DefaultImporter:
-  externalObjects: {}
-=======
 <<<<<<<< HEAD:The Three Musketeers/Assets/Assests/zoo area/Materials/conctructionrope.mat.meta
-guid: 9f54633ccf626e647af2a884c77b1d49
+guid: 553191a5070f1f8489935f4cfa7f2973
 NativeFormatImporter:
 ========
 guid: 823e16c3cba5f51479ad4515385e07c5
@@ -18,7 +8,6 @@ DefaultImporter:
 >>>>>>>> 59a3baa4c9cc8d375f249b143e130740346b3ac8:The Three Musketeers/Assets/_Recovery/0 (2).unity.meta
   externalObjects: {}
   mainObjectFileID: 2100000
->>>>>>> Stashed changes
   userData: 
   assetBundleName: 
   assetBundleVariant: 

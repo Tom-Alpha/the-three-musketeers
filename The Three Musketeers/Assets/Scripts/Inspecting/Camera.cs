@@ -178,7 +178,7 @@ public class InspectSystem : MonoBehaviour
                 {
                     Vector3 pos = rend.bounds.center;
 
-                    pos.y = rend.bounds.max.y + 0.15f;
+                    pos.y = rend.bounds.max.y + 0.45f;
 
                     pos += Camera.main.transform.forward * -0.15f;
 

@@ -42,13 +42,13 @@ public class EvidenceSystem : MonoBehaviour
                 promptUI.SetActive(true);
 
                 Renderer rend =
-                    nearbyEvidence.GetComponent<Renderer>();
+                    nearbyEvidence.GetComponentInChildren<Renderer>();
 
                 if (rend != null)
                 {
-                    Vector3 pos = rend.bounds.center;
-
-                    pos.y = rend.bounds.max.y + 0.15f;
+                    Vector3 pos =
+                        rend.bounds.center +
+                        Vector3.up * 0.75f;
 
                     promptUI.transform.position = pos;
                 }
@@ -67,7 +67,32 @@ public class EvidenceSystem : MonoBehaviour
             nearbyEvidence.name
         );
 
-        nearbyEvidence.gameObject.SetActive(false);
+        EvidenceLink link =
+            nearbyEvidence.GetComponent<EvidenceLink>();
+
+        if (link != null && link.linkedEvidence != null)
+        {
+            EvidenceObject evidence =
+                link.linkedEvidence;
+
+            if (
+                evidence.spriteRendererToEnable != null
+            )
+            {
+                evidence.spriteRendererToEnable.enabled =
+                    true;
+            }
+
+            if (
+                evidence.draggableEvidence != null
+            )
+            {
+                evidence.draggableEvidence.enabled =
+                    true;
+            }
+        }
+
+        Destroy(nearbyEvidence.gameObject);
 
         promptUI.SetActive(false);
 

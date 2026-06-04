@@ -3,6 +3,7 @@ using UnityEngine;
 public class LemurThrower : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public Animator lemurAnimator;
     public Transform throwPoint;
     public Transform player;
 
@@ -21,6 +22,14 @@ public class LemurThrower : MonoBehaviour
     void ThrowProjectile()
     {
         if (!active) return;
+
+        lemurAnimator.SetTrigger("Throw");
+        
+        if (projectilePrefab == null)
+        {
+            Debug.LogError("Projectile Prefab is null!");
+            return;
+        }
 
         GameObject proj = Instantiate(
             projectilePrefab,

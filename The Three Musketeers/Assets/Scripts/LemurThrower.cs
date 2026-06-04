@@ -21,10 +21,12 @@ public class LemurThrower : MonoBehaviour
 
     void ThrowProjectile()
     {
+        Debug.Log("ThrowProjectile called");
+
         if (!active) return;
 
         lemurAnimator.SetTrigger("Throw");
-        
+
         if (projectilePrefab == null)
         {
             Debug.LogError("Projectile Prefab is null!");
@@ -37,9 +39,22 @@ public class LemurThrower : MonoBehaviour
             Quaternion.identity
         );
 
+        proj.name = "TEST_PROJECTILE";
+
+        Debug.Log("Created: " + proj.name);
+        Debug.Log("Position: " + proj.transform.position);
+
         Rigidbody rb = proj.GetComponent<Rigidbody>();
 
+        if (rb == null)
+        {
+            Debug.LogError("No Rigidbody found!");
+            return;
+        }
+
         Vector3 dir = (player.position - throwPoint.position).normalized;
+
+        Debug.Log("Dir: " + dir);
 
         rb.AddForce(dir * throwForce, ForceMode.Impulse);
     }

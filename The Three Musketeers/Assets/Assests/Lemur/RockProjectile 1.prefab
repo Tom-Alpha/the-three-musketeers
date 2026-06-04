@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4799982598999379776
+--- !u!1001 &7522196245785637731
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
       propertyPath: m_LocalScale.x
-      value: 25
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
       propertyPath: m_LocalScale.y
-      value: 25
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
       propertyPath: m_LocalScale.z
-      value: 25
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 151f42dfa557f7346b0719f1f35012c2, type: 2}
     - target: {fileID: 919132149155446097, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
       propertyPath: m_Name
-      value: RockProjectile
+      value: RockProjectile 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -82,26 +82,26 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4203003676898961732}
+      addedObject: {fileID: 7144340527724941161}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7254071384186122425}
+      addedObject: {fileID: 571140043760870341}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8426946001570841854}
+      addedObject: {fileID: 5505733171160860229}
   m_SourcePrefab: {fileID: 100100000, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
---- !u!1 &5646844810798510609 stripped
+--- !u!1 &7252304413150760498 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 80152d88092fe404cbc7d084be9d4f13, type: 3}
-  m_PrefabInstance: {fileID: 4799982598999379776}
+  m_PrefabInstance: {fileID: 7522196245785637731}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &4203003676898961732
+--- !u!135 &7144340527724941161
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5646844810798510609}
+  m_GameObject: {fileID: 7252304413150760498}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -114,15 +114,15 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.009870566
+  m_Radius: 0.01
   m_Center: {x: -0.0000000032468515, y: 0.00012943288, z: -0.00042873432}
---- !u!54 &7254071384186122425
+--- !u!54 &571140043760870341
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5646844810798510609}
+  m_GameObject: {fileID: 7252304413150760498}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -143,13 +143,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &-8426946001570841854
+--- !u!114 &5505733171160860229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5646844810798510609}
+  m_GameObject: {fileID: 7252304413150760498}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c4e9a2595c678448b0892d4d5e0eb75, type: 3}

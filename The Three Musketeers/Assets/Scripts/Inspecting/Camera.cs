@@ -119,7 +119,7 @@ public class InspectSystem : MonoBehaviour
     void Update()
     {
 
-        Debug.Log("SCRIPT RUNNING");
+        //Debug.Log("SCRIPT RUNNING");
         CheckForNearbyObject();
         HandleInteraction();
 
@@ -157,15 +157,15 @@ public class InspectSystem : MonoBehaviour
             inspectRange
         );
 
-        Debug.Log("Hits: " + hits.Length);
+        //Debug.Log("Hits: " + hits.Length);
 
         foreach (Collider hit in hits)
         {
-            Debug.Log("Found object: " + hit.name);
+            //Debug.Log("Found object: " + hit.name);
 
             if (hit.CompareTag("Inspectable"))
             {
-                Debug.Log("FOUND INSPECTABLE");
+                //Debug.Log("FOUND INSPECTABLE");
 
                 nearbyTarget = hit.transform;
 
@@ -202,7 +202,7 @@ public class InspectSystem : MonoBehaviour
             nearbyTarget != null &&
             !inspecting)
         {
-            Debug.Log("Inspecting...");
+            //Debug.Log("Inspecting...");
 
             target = nearbyTarget;
             inspecting = true;

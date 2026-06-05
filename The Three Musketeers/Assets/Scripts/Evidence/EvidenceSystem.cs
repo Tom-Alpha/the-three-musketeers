@@ -62,10 +62,7 @@ public class EvidenceSystem : MonoBehaviour
 
     void CollectEvidence()
     {
-        Debug.Log(
-            "Collected evidence: " +
-            nearbyEvidence.name
-        );
+       
 
         EvidenceLink link =
             nearbyEvidence.GetComponent<EvidenceLink>();

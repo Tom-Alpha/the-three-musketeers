@@ -15,6 +15,7 @@ public class PosterInspect : MonoBehaviour
 
     private void Start()
     {
+        interactPrompt.SetActive(false);
     }
     
     void Update()
@@ -35,7 +36,7 @@ public class PosterInspect : MonoBehaviour
             interactPrompt.SetActive(!SeePoster);
         }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("TRIGGER WORKED");
@@ -43,6 +44,7 @@ public class PosterInspect : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            interactPrompt.SetActive(true);
         }
     }
 
@@ -51,6 +53,7 @@ public class PosterInspect : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            interactPrompt.SetActive(false);
             
             if (SeePoster)
             {

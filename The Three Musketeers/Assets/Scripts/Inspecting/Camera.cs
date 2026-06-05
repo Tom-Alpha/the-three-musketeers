@@ -202,15 +202,21 @@ public class InspectSystem : MonoBehaviour
             nearbyTarget != null &&
             !inspecting)
         {
-            //Debug.Log("Inspecting...");
+            // Save camera state BEFORE inspection
+            originalParent = transform.parent;
+            originalLocalPos = transform.localPosition;
+            originalLocalRot = transform.localRotation;
 
             target = nearbyTarget;
             inspecting = true;
+
             playerMovement.enabled = false;
+
             foreach (Renderer rend in playerRenderers)
             {
                 rend.enabled = false;
             }
+
             transform.SetParent(null);
         }
     }
@@ -275,11 +281,14 @@ public class InspectSystem : MonoBehaviour
     void ExitInspect()
     {
         inspecting = false;
+
         playerMovement.enabled = true;
+
         foreach (Renderer rend in playerRenderers)
         {
             rend.enabled = true;
         }
+
         target = null;
 
         if (activePrompt != null)
@@ -287,8 +296,11 @@ public class InspectSystem : MonoBehaviour
             activePrompt.SetActive(false);
         }
 
-        transform.SetParent(originalParent); 
-        transform.localPosition = originalLocalPos; 
+        // Restore camera state
+        transform.SetParent(originalParent);
+
+        transform.localPosition = originalLocalPos;
+
         transform.localRotation = originalLocalRot;
     }
 

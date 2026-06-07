@@ -5675,10 +5675,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20e897fb900da34a89350ddf7d985d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PosterInspect
-  gameplayCamera: {fileID: 0}
+  gameplayCamera: {fileID: 668275007}
   posterCam: {fileID: 48777302}
-  playerMovement: {fileID: 0}
-  playerModel: {fileID: 0}
+  playerMovement: {fileID: 1175461653}
+  playerModel: {fileID: 1584557371}
   interactPrompt: {fileID: 95675258}
 --- !u!114 &27470552
 MonoBehaviour:
@@ -43248,10 +43248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20e897fb900da34a89350ddf7d985d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PosterInspect
-  gameplayCamera: {fileID: 0}
+  gameplayCamera: {fileID: 668275007}
   posterCam: {fileID: 1036752939}
-  playerMovement: {fileID: 0}
-  playerModel: {fileID: 0}
+  playerMovement: {fileID: 1175461653}
+  playerModel: {fileID: 1584557371}
   interactPrompt: {fileID: 497868795}
 --- !u!114 &1174604037
 MonoBehaviour:
@@ -59345,10 +59345,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20e897fb900da34a89350ddf7d985d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PosterInspect
-  gameplayCamera: {fileID: 0}
+  gameplayCamera: {fileID: 668275007}
   posterCam: {fileID: 522395629}
-  playerMovement: {fileID: 0}
-  playerModel: {fileID: 0}
+  playerMovement: {fileID: 1175461653}
+  playerModel: {fileID: 1584557371}
   interactPrompt: {fileID: 379553246}
 --- !u!114 &1784335291
 MonoBehaviour:

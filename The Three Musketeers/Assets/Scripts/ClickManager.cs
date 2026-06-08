@@ -18,7 +18,8 @@ public class ClickManager : MonoBehaviour
 
     void OnDisable()
     {
-        inputActions.Disable();
+        if (inputActions != null)
+              inputActions.Disable();
     }
 
     void Update()

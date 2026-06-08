@@ -6525,6 +6525,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1175461659}
+        m_TargetAssemblyTypeName: PlayerAppearanceManager, Assembly-CSharp
+        m_MethodName: PreviousHair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &56291887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34583,6 +34595,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768030014}
   m_CullTransparentMesh: 1
+--- !u!1 &770221226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770221227}
+  m_Layer: 0
+  m_Name: HeadAttachmentpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &770221227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770221226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1837124953}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &776956160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba4e224354d55f545b2d1348e0352139, type: 3}
@@ -43358,6 +43401,7 @@ GameObject:
   - component: {fileID: 1175461655}
   - component: {fileID: 1175461654}
   - component: {fileID: 1175461653}
+  - component: {fileID: 1175461659}
   m_Layer: 0
   m_Name: 'Player '
   m_TagString: Player
@@ -43505,6 +43549,40 @@ Transform:
   - {fileID: 1584557372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1175461659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175461652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806c9838f2be90740963982f9d72abde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAppearanceManager
+  headAttachmentPoint: {fileID: 770221227}
+  hairStyles:
+  - prefab: {fileID: 919132149155446097, guid: 0df7f56238d50b64c8c9b6d89b7cca3a, type: 3}
+    positionOffset: {x: 0, y: -0.03568, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
+  - prefab: {fileID: 919132149155446097, guid: fade3a37d0cfbf549902bbd79afbb6b7, type: 3}
+    positionOffset: {x: 0, y: -0.03568, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
+  - prefab: {fileID: 919132149155446097, guid: 167de3d6b43e26549a1f22f6d8da9336, type: 3}
+    positionOffset: {x: 0, y: -0.03568, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
+  - prefab: {fileID: 919132149155446097, guid: 461bb92cb6a7ee34eb196ecb1e81913c, type: 3}
+    positionOffset: {x: 0, y: -0.03568, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
+  - prefab: {fileID: 919132149155446097, guid: 5c5ebb3a9faeaa64eaa86919dadfbb44, type: 3}
+    positionOffset: {x: 0, y: -0.03568, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
 --- !u!1 &1178156775
 GameObject:
   m_ObjectHideFlags: 0
@@ -45346,6 +45424,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 872617924}
         m_TargetAssemblyTypeName: CustomizationManager, Assembly-CSharp
+        m_MethodName: NextHair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1175461659}
+        m_TargetAssemblyTypeName: PlayerAppearanceManager, Assembly-CSharp
         m_MethodName: NextHair
         m_Mode: 1
         m_Arguments:
@@ -71013,6 +71103,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3471d2e623e7943308d68cc348bcefa9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 304406455}
+    - targetCorrespondingSourceObject: {fileID: 964837939174635955, guid: 3471d2e623e7943308d68cc348bcefa9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 770221227}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3471d2e623e7943308d68cc348bcefa9, type: 3}
       insertIndex: -1

@@ -3,15 +3,14 @@ using UnityEngine.InputSystem;
 
 public class DraggableEvidence : MonoBehaviour
 {
-  
     bool dragging;
     Vector3 offset;
 
-    
     void Update()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
+            Debug.Log("Mouse Click");
             TryStartDrag();
         }
 
@@ -35,6 +34,8 @@ public class DraggableEvidence : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
+            Debug.Log("Hit: " + hit.transform.name);
+
             if (hit.transform == transform)
             {
                 Debug.Log("CLICKED");
@@ -45,6 +46,10 @@ public class DraggableEvidence : MonoBehaviour
                     transform.position -
                     MouseWorldPosition();
             }
+        }
+        else
+        {
+            Debug.Log("Raycast hit nothing");
         }
     }
 

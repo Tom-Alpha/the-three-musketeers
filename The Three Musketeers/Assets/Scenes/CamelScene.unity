@@ -6472,6 +6472,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1256438297}
+        m_TargetAssemblyTypeName: PlayerAppearanceManager, Assembly-CSharp
+        m_MethodName: PreviousHair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &56291887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35212,6 +35224,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f08b3591a49a33647bae0b2add672bcb, type: 3}
   m_PrefabInstance: {fileID: 1477200791}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &795934991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795934992}
+  m_Layer: 0
+  m_Name: HeadAttachementPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &795934992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795934991}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 987244710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &796381486
 GameObject:
   m_ObjectHideFlags: 0
@@ -46421,6 +46464,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1256438297}
+        m_TargetAssemblyTypeName: PlayerAppearanceManager, Assembly-CSharp
+        m_MethodName: NextHair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1241985238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46982,6 +47037,7 @@ GameObject:
   - component: {fileID: 1256438290}
   - component: {fileID: 1256438294}
   - component: {fileID: 1256438296}
+  - component: {fileID: 1256438297}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -47129,6 +47185,40 @@ MonoBehaviour:
   rotationSpeed: 40
   dodgeForce: 3
   dodgeCooldown: 1
+--- !u!114 &1256438297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256438288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806c9838f2be90740963982f9d72abde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAppearanceManager
+  headAttachmentPoint: {fileID: 795934992}
+  hairStyles:
+  - prefab: {fileID: 919132149155446097, guid: 0df7f56238d50b64c8c9b6d89b7cca3a, type: 3}
+    positionOffset: {x: 0, y: -0.036, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
+  - prefab: {fileID: 919132149155446097, guid: fade3a37d0cfbf549902bbd79afbb6b7, type: 3}
+    positionOffset: {x: 0, y: -0.036, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
+  - prefab: {fileID: 919132149155446097, guid: 167de3d6b43e26549a1f22f6d8da9336, type: 3}
+    positionOffset: {x: 0, y: -0.036, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
+  - prefab: {fileID: 919132149155446097, guid: 461bb92cb6a7ee34eb196ecb1e81913c, type: 3}
+    positionOffset: {x: 0, y: -0.036, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
+  - prefab: {fileID: 919132149155446097, guid: 5c5ebb3a9faeaa64eaa86919dadfbb44, type: 3}
+    positionOffset: {x: 0, y: -0.036, z: 0}
+    rotationOffset: {x: 0, y: 90, z: 0}
+    scale: {x: 0.01, y: 0.01, z: 0.01}
 --- !u!1001 &1259697410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63912,6 +64002,7 @@ MonoBehaviour:
   parrotEvidence: {fileID: 637158109}
   monkeyEvidence: {fileID: 736104904}
   alligatorEvidence: {fileID: 1704569672}
+  boardManager: {fileID: 0}
 --- !u!4 &1908784009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 354b7d9c4e13f40c8a16927002d41aa9, type: 3}
@@ -71926,6 +72017,13 @@ MonoBehaviour:
   - {fileID: 1912229660}
   - {fileID: 1611992223}
   - {fileID: 443955623}
+  lemurSolution: 
+  successScreen: {fileID: 0}
+  lorikeetSolution: 
+  solutionTextObject: {fileID: 0}
+  helpButton: {fileID: 0}
+  solutionBox: {fileID: 0}
+  solutionText: {fileID: 0}
   solutionPoint: {fileID: 796381487}
   linePrefab: {fileID: 1707985411986447326, guid: 1d61ac4624d8e32459c86fd60db06fec, type: 3}
 --- !u!4 &2048816500
@@ -72709,6 +72807,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3471d2e623e7943308d68cc348bcefa9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1623029869}
+    - targetCorrespondingSourceObject: {fileID: 964837939174635955, guid: 3471d2e623e7943308d68cc348bcefa9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 795934992}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3471d2e623e7943308d68cc348bcefa9, type: 3}
       insertIndex: -1

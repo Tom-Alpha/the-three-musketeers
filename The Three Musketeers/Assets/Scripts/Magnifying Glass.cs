@@ -19,6 +19,7 @@ public class MagnifyingGlass : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Inspecting: " + inspectSystem.IsInspecting);
         if (inspectSystem == null)
             return;
 

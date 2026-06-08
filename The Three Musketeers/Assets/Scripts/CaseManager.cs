@@ -5,19 +5,35 @@ public class CaseManager : MonoBehaviour
     public GameObject parrotEvidence;
     public GameObject monkeyEvidence;
     public GameObject alligatorEvidence;
-
+    public EvidenceBoardManager boardManager;
+    
+    public enum CaseType
+    {
+        Parrot,
+        Monkey,
+        Alligator
+    }
+    
+    public static CaseType currentCase;
+    
     public void LoadParrot()
     {
+        boardManager.ResetBoardVisuals();
+
         DisableAll();
 
-        parrotEvidence.SetActive(true);
+        currentCase = CaseType.Parrot;
 
-        Debug.Log("PARROT CASE");
+        parrotEvidence.SetActive(true);
     }
 
     public void LoadMonkey()
     {
+        boardManager.ResetBoardVisuals();
+
         DisableAll();
+
+        currentCase = CaseType.Monkey;
 
         monkeyEvidence.SetActive(true);
 
@@ -26,7 +42,11 @@ public class CaseManager : MonoBehaviour
 
     public void LoadAlligator()
     {
+        boardManager.ResetBoardVisuals();
+
         DisableAll();
+
+        currentCase = CaseType.Alligator;
 
         alligatorEvidence.SetActive(true);
 

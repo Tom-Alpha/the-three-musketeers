@@ -1,0 +1,255 @@
+fileFormatVersion: 2
+guid: 2faf4c654103eb142932ba2e4fc850c9
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: shiteyanyorun(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: shiteyanyorun(Clone)
+      position: {x: 0.050270427, y: 3.108144, z: 6.2317274e-10}
+      rotation: {x: 0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Head
+      parentName: Armature
+      position: {x: -0.0006641644, y: 0.00091486797, z: -0.00054859667}
+      rotation: {x: -0.70426667, y: -0.007805685, z: -0.011001726, w: 0.7098074}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Root_L
+      parentName: Head
+      position: {x: -5.3260008e-11, y: 0.006067023, z: 3.0267983e-11}
+      rotation: {x: 0.66992265, y: 0.4129692, z: -0.55241096, w: 0.27477658}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999999}
+    - name: Leg_L
+      parentName: Root_L
+      position: {x: -0, y: 0.006190593, z: 5.2154064e-10}
+      rotation: {x: 0.31304568, y: 0.3828666, z: 0.51799506, w: 0.6979231}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Knee_L
+      parentName: Leg_L
+      position: {x: -4.842877e-10, y: 0.017662575, z: 8.1956386e-10}
+      rotation: {x: 0.08455029, y: 0.9391084, z: 0.3175997, w: -0.10028565}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: Foot_L
+      parentName: Knee_L
+      position: {x: 7.4505804e-11, y: 0.017254768, z: 0.0000000013411044}
+      rotation: {x: -0.03974335, y: 0.68436325, z: 0.7264879, w: 0.047779232}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+    - name: Toe_L
+      parentName: Foot_L
+      position: {x: -7.45058e-10, y: 0.002928881, z: -1.4901161e-10}
+      rotation: {x: -0.15490268, y: -0.00909065, z: 0.02011502, w: 0.9876831}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Toe_L_end
+      parentName: Toe_L
+      position: {x: -0, y: 0.0028344747, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hairband_L
+      parentName: Root_L
+      position: {x: -0, y: 0.006190593, z: 5.2154064e-10}
+      rotation: {x: -0.47813922, y: -0.018013507, z: 0.58153206, w: 0.6579353}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Hairband_L_end
+      parentName: Hairband_L
+      position: {x: -0, y: 0.0021026642, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Root_R
+      parentName: Head
+      position: {x: -5.3260008e-11, y: 0.006067023, z: 3.0267983e-11}
+      rotation: {x: 0.30272937, y: -0.3327005, z: 0.7302339, w: 0.5142216}
+      scale: {x: 0.9999997, y: 0.9999998, z: 0.9999998}
+    - name: Leg_R
+      parentName: Root_R
+      position: {x: 1.9557773e-10, y: 0.0061905924, z: 1.8626451e-11}
+      rotation: {x: -0.5560895, y: 0.69098264, z: 0.3872539, w: -0.25167817}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Knee_R
+      parentName: Leg_R
+      position: {x: -1.7695129e-10, y: 0.017662574, z: 0}
+      rotation: {x: -0.002787143, y: 0.9714229, z: 0.23732047, w: 0.0029513384}
+      scale: {x: 0.9999999, y: 1, z: 1.0000001}
+    - name: Foot_R
+      parentName: Knee_R
+      position: {x: -2.9802322e-10, y: 0.017254768, z: 6.705522e-10}
+      rotation: {x: 0.13320741, y: 0.8666379, z: 0.48054346, w: 0.016509527}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: Toe_R
+      parentName: Foot_R
+      position: {x: 0.0000000010430813, y: 0.0029288786, z: -0.0000000023841857}
+      rotation: {x: -0.6160116, y: 0.017731093, z: -0.013147704, w: 0.7874277}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: Toe_R_end
+      parentName: Toe_R
+      position: {x: -0, y: 0.0028344747, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hairband_R
+      parentName: Root_R
+      position: {x: 1.9557773e-10, y: 0.0061905924, z: 1.8626451e-11}
+      rotation: {x: -0.4914697, y: -0.12013182, z: -0.24066478, w: 0.8283154}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: Hairband_R_end
+      parentName: Hairband_R
+      position: {x: -0, y: 0.0021026642, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Camera
+      parentName: shiteyanyorun(Clone)
+      position: {x: -2.992541, y: 3.507975, z: 4.455865}
+      rotation: {x: 0.038265333, y: 0.94615835, z: -0.12164831, w: 0.29752636}
+      scale: {x: 100, y: 100.00001, z: 100}
+    - name: Empty
+      parentName: shiteyanyorun(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Empty.001
+      parentName: shiteyanyorun(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Empty.002
+      parentName: shiteyanyorun(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Empty.003
+      parentName: shiteyanyorun(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Lamp
+      parentName: shiteyanyorun(Clone)
+      position: {x: -4.0762453, y: 7.2352166, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203392, z: 0.72694236, w: 0.28416622}
+      scale: {x: 100.00001, y: 100, z: 100}
+    - name: Shiteyanyo
+      parentName: shiteyanyorun(Clone)
+      position: {x: 0.050270427, y: 3.6519852, z: 6.23258e-10}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 55.10343, y: 55.10343, z: 55.10343}
+    - name: Shiteyanyo.001
+      parentName: shiteyanyorun(Clone)
+      position: {x: 0.050270427, y: 3.6519852, z: 6.23258e-10}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 55.10343, y: 55.10343, z: 55.10343}
+    - name: hairlegs
+      parentName: shiteyanyorun(Clone)
+      position: {x: 0.050270427, y: 3.6473482, z: 0.445217}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 46.79891, y: 46.79891, z: 46.79891}
+    - name: hairlegs.001
+      parentName: shiteyanyorun(Clone)
+      position: {x: 0.050270427, y: 3.6473482, z: 0.445217}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 46.79891, y: 46.79891, z: 46.79891}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

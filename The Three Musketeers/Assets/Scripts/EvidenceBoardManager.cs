@@ -1,10 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EvidenceBoardManager : MonoBehaviour
 {
     public DropZone[] dropZones;
-
+    
+    public string lemurSolution;
+    
+    public SuccessScreen successScreen;
+    
+    public string lorikeetSolution;
+    
+    public GameObject solutionTextObject;
+    public GameObject helpButton;
+    
+    public GameObject solutionBox;
+    
+    public TMP_Text solutionText;
+    
     public Transform solutionPoint;
 
     public GameObject linePrefab;
@@ -36,6 +50,7 @@ public class EvidenceBoardManager : MonoBehaviour
                 );
             }
         }
+        
 
         // Only show lines if ALL slots are filled
         foreach (DropZone zone in dropZones)
@@ -63,8 +78,21 @@ public class EvidenceBoardManager : MonoBehaviour
                 solutionPoint
             );
         }
+        if (correctPoints.Count == dropZones.Length)
+        {
+            ShowSolution();
+        }
     }
+    
+    
+    public void ResetBoardVisuals()
+    {
+        ClearLines();
 
+        solutionBox.SetActive(false);
+
+        solutionText.text = "";
+    }
     void CreateLine(Transform start, Transform end)
     {
         GameObject lineObj =
@@ -102,4 +130,35 @@ public class EvidenceBoardManager : MonoBehaviour
 
         activeLines.Clear();
     }
-}
+    public void HelpAnimal()
+    {
+        Debug.Log("Help button clicked!");
+        if (successScreen == null)
+        {
+            Debug.LogError("SUCCESS SCREEN IS NULL!");
+        }
+        else
+        {
+            Debug.Log("SuccessScreen found");
+            successScreen.ShowEndScreen();
+        };
+    }
+    
+    void ShowSolution()
+    {
+        Debug.Log("ShowSolution called!");
+
+        solutionBox.SetActive(true);
+
+        if (CaseManager.currentCase == CaseManager.CaseType.Parrot)
+        {
+            solutionText.text = lorikeetSolution;
+        }
+        else if (CaseManager.currentCase == CaseManager.CaseType.Monkey)
+        {
+            solutionText.text = lemurSolution;
+        }
+
+        Debug.Log("Text set to: " + solutionText.text);
+    }
+}   

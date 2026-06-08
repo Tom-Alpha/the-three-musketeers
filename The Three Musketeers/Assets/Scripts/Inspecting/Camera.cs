@@ -5,7 +5,7 @@ public class InspectSystem : MonoBehaviour
 {
     [Header("Player")]
     public PlayerMovement playerMovement;
-    public Renderer[] playerRenderers;
+    public Transform playerRoot;
     
     public Transform player;
     [Header("Movement")]
@@ -21,7 +21,13 @@ public class InspectSystem : MonoBehaviour
     [Header("Detection")]
     public float inspectRange = 5f;
     public LayerMask inspectLayer;
-
+    
+    [Header("Inspect UI")]
+    public GameObject exitPromptUI;
+    public bool IsInspecting
+    {
+        get { return inspecting; }
+    }
     [Header("Prompt")]
     public GameObject promptUI;
 
@@ -118,29 +124,37 @@ public class InspectSystem : MonoBehaviour
 
     void Update()
     {
-
-        //Debug.Log("SCRIPT RUNNING");
-        CheckForNearbyObject();
-        HandleInteraction();
-
         if (inspecting)
         {
+            if (promptUI != null)
+                promptUI.SetActive(false);
+            
+            if (interactAction.triggered || escapeAction.triggered)
+            {
+                ExitInspect();
+                return;
+            }
+
             uiPanel.Show();
-        }
-        else
-        {
-            uiPanel.Hide();
+
+            if (exitPromptUI != null)
+                exitPromptUI.SetActive(true);
+
+            if (target != null)
+            {
+                HandleInspectCamera();
+            }
+
+            return;
         }
 
-        if (inspecting && target != null)
-        {
-            HandleInspectCamera();
-        }
+        uiPanel.Hide();
 
-        if (escapeAction.triggered && inspecting)
-        {
-            ExitInspect();
-        }
+        if (exitPromptUI != null)
+            exitPromptUI.SetActive(false);
+
+        CheckForNearbyObject();
+        HandleInteraction();
     }
     
 
@@ -209,13 +223,9 @@ public class InspectSystem : MonoBehaviour
 
             target = nearbyTarget;
             inspecting = true;
-
             playerMovement.enabled = false;
 
-            foreach (Renderer rend in playerRenderers)
-            {
-                rend.enabled = false;
-            }
+            SetPlayerVisible(false);
 
             transform.SetParent(null);
         }
@@ -277,18 +287,28 @@ public class InspectSystem : MonoBehaviour
             }
         }
     }
+    void SetPlayerVisible(bool visible)
+    {
+        Renderer[] renderers =
+            playerRoot.GetComponentsInChildren<Renderer>(true);
 
+        foreach (Renderer rend in renderers)
+        {
+            rend.enabled = visible;
+        }
+    }
     void ExitInspect()
     {
+        
         inspecting = false;
-
         playerMovement.enabled = true;
 
-        foreach (Renderer rend in playerRenderers)
+        SetPlayerVisible(true);
+        
+        if (exitPromptUI != null)
         {
-            rend.enabled = true;
+            exitPromptUI.SetActive(false);
         }
-
         target = null;
 
         if (activePrompt != null)
@@ -313,6 +333,6 @@ public class InspectSystem : MonoBehaviour
             inspectRange
         );
     }
-    
+
 }
 

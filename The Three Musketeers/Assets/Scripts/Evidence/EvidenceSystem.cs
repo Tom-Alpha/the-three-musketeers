@@ -87,6 +87,11 @@ public class EvidenceSystem : MonoBehaviour
                 evidence.draggableEvidence.enabled =
                     true;
             }
+
+            if (CardUnlockNotification.Instance != null)
+            {
+                CardUnlockNotification.Instance.ShowNotification();
+            }
         }
 
         Destroy(nearbyEvidence.gameObject);

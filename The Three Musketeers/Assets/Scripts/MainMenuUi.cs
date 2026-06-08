@@ -9,7 +9,7 @@ public class MainMenuUI : MonoBehaviour
     // Called when Play is pressed
     public void PlayGame()
     {
-        SceneManager.LoadScene("BookScene");
+        SceneManager.LoadScene("CamelScene");
     }
 
     // Open settings menu

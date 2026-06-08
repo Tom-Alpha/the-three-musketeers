@@ -223,7 +223,8 @@ public class InspectSystem : MonoBehaviour
 
             target = nearbyTarget;
             inspecting = true;
-
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             playerMovement.enabled = false;
 
             SetPlayerVisible(false);
@@ -302,7 +303,8 @@ public class InspectSystem : MonoBehaviour
     {
         
         inspecting = false;
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         playerMovement.enabled = true;
 
         SetPlayerVisible(true);

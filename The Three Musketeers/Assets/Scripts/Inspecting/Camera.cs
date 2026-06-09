@@ -7,6 +7,8 @@ public class InspectSystem : MonoBehaviour
     public PlayerMovement playerMovement;
     public Transform playerRoot;
     
+    public Transform cameraPivot;
+    public float orbitSpeed = 150f;
     public Transform player;
     [Header("Movement")]
     public float moveSpeed = 5f;
@@ -37,7 +39,9 @@ public class InspectSystem : MonoBehaviour
 
     private Transform target;
     private Transform nearbyTarget;
-
+    private Quaternion originalRotation;
+    private Animator inspectedAnimator;
+    
     private GameObject activePrompt;
 
     private Vector3 originalLocalPos;
@@ -113,7 +117,9 @@ public class InspectSystem : MonoBehaviour
     {
         targetZoom = offset.z;
         currentZoom = offset.z;
-        
+
+        originalRotation = cameraPivot.localRotation;
+
         Vector3 startEuler = transform.localRotation.eulerAngles;
 
         currentRotation.x = startEuler.y;
@@ -155,6 +161,27 @@ public class InspectSystem : MonoBehaviour
 
         CheckForNearbyObject();
         HandleInteraction();
+
+        if (Mouse.current.rightButton.isPressed)
+        {
+            float mouseX =
+                Mouse.current.delta.ReadValue().x;
+
+            cameraPivot.Rotate(
+                Vector3.up,
+                mouseX * orbitSpeed * Time.deltaTime,
+                Space.Self
+            );
+        }
+        else
+        {
+            cameraPivot.localRotation =
+                Quaternion.Slerp(
+                    cameraPivot.localRotation,
+                    Quaternion.identity,
+                    5f * Time.deltaTime
+                );
+        }
     }
     
 
@@ -222,6 +249,20 @@ public class InspectSystem : MonoBehaviour
             originalLocalRot = transform.localRotation;
 
             target = nearbyTarget;
+
+            inspectedAnimator =
+                target.GetComponentInParent<Animator>();
+
+            if (inspectedAnimator != null)
+            {
+                Debug.Log("Animator found: " + inspectedAnimator.name);
+                inspectedAnimator.enabled = false;
+            }
+            else
+            {
+                Debug.Log("No Animator found");
+            }
+
             inspecting = true;
             playerMovement.enabled = false;
 
@@ -308,6 +349,10 @@ public class InspectSystem : MonoBehaviour
         if (exitPromptUI != null)
         {
             exitPromptUI.SetActive(false);
+        }
+        if (inspectedAnimator != null)
+        {
+            inspectedAnimator.enabled = true;
         }
         target = null;
 

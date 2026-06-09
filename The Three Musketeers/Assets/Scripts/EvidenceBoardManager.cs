@@ -26,6 +26,13 @@ public class EvidenceBoardManager : MonoBehaviour
     private List<GameObject> activeLines =
         new List<GameObject>();
 
+    public void ClearDropZones()
+    {
+        foreach (DropZone zone in dropZones)
+        {
+            zone.currentEvidence = null;
+        }
+    }
     public void RefreshConnections()
     {
         ClearLines();
@@ -51,7 +58,15 @@ public class EvidenceBoardManager : MonoBehaviour
             }
         }
         
-
+        foreach (DropZone zone in dropZones)
+        {
+            Debug.Log(
+                zone.name + " contains: " +
+                (zone.currentEvidence != null
+                    ? zone.currentEvidence.name
+                    : "NULL")
+            );
+        }
         // Only show lines if ALL slots are filled
         foreach (DropZone zone in dropZones)
         {
@@ -70,19 +85,17 @@ public class EvidenceBoardManager : MonoBehaviour
             );
         }
 
-        // Connect last correct evidence to solution
-        if (correctPoints.Count > 0)
+        // Show solution after 3 correct clues
+        if (correctPoints.Count >= 3)
         {
             CreateLine(
                 correctPoints[correctPoints.Count - 1],
                 solutionPoint
             );
-        }
-        if (correctPoints.Count == dropZones.Length)
-        {
+
             ShowSolution();
         }
-    }
+            }
     
     
     public void ResetBoardVisuals()

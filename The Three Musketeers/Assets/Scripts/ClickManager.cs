@@ -37,6 +37,15 @@ public class ClickManager : MonoBehaviour
             {
                 Debug.Log("Hit: " + hit.collider.name);
 
+                PlayButton playButton =
+                    hit.collider.GetComponent<PlayButton>();
+
+                if (playButton != null)
+                {
+                    playButton.PlayGame();
+                    return;
+                }
+
                 BookTab tab = hit.collider.GetComponentInParent<BookTab>();
 
                 if (tab != null)

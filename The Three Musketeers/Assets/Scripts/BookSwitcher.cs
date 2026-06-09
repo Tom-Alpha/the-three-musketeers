@@ -9,6 +9,11 @@ public class BookSwitcher : MonoBehaviour
 
     private bool inBook = false;
 
+    public bool IsBookOpen
+    {
+        get { return inBook; }
+    }
+
     void Update()
     {
         if (Keyboard.current.tabKey.wasPressedThisFrame)

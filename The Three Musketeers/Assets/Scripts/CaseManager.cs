@@ -7,6 +7,7 @@ public class CaseManager : MonoBehaviour
     public GameObject alligatorEvidence;
     public EvidenceBoardManager boardManager;
     
+    public EvidenceBoardManager evidenceBoardManager;
     public enum CaseType
     {
         Parrot,
@@ -19,6 +20,7 @@ public class CaseManager : MonoBehaviour
     public void LoadParrot()
     {
         boardManager.ResetBoardVisuals();
+        evidenceBoardManager.ClearDropZones();
 
         DisableAll();
 
@@ -30,6 +32,7 @@ public class CaseManager : MonoBehaviour
     public void LoadMonkey()
     {
         boardManager.ResetBoardVisuals();
+        evidenceBoardManager.ClearDropZones();
 
         DisableAll();
 
@@ -41,8 +44,10 @@ public class CaseManager : MonoBehaviour
     }
 
     public void LoadAlligator()
+    
     {
         boardManager.ResetBoardVisuals();
+        evidenceBoardManager.ClearDropZones();
 
         DisableAll();
 

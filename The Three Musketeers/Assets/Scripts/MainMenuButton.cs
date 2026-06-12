@@ -9,6 +9,12 @@ public class PlayButton : MonoBehaviour
     public Camera gameplayCamera;
     public Camera menuCamera;
 
+    void OnMouseDown()
+    {
+        Debug.Log("BUTTON CLICKED");
+        PlayGame();
+    }
+
     public void PlayGame()
     {
         Debug.Log("PLAY CLICKED");
